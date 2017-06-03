@@ -20,7 +20,7 @@
     "loopback-component-explorer": "^4.0.0",
     "quill": "^1.2.5",
     "serve-favicon": "^2.0.1",
-    "strong-error-handler": "^2.0.0"
+    "strong-error-handler": "^2.0.0",
     "watson-developer-cloud": "^2.32.1"
   },
   "devDependencies": {
