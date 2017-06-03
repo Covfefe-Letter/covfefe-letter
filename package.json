@@ -7,7 +7,7 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "start": "node .",
+    "start": "nodemon .",
     "posttest": "npm run lint && nsp check"
   },
   "dependencies": {
@@ -21,6 +21,7 @@
     "quill": "^1.2.5",
     "serve-favicon": "^2.0.1",
     "strong-error-handler": "^2.0.0"
+    "watson-developer-cloud": "^2.32.1"
   },
   "devDependencies": {
     "eslint": "^3.17.1",

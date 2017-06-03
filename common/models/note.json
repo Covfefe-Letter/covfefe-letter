@@ -12,5 +12,78 @@
   "validations": [],
   "relations": {},
   "acls": [],
-  "methods": {}
+  "methods": {
+    "greet": {
+      "accepts": [
+        {
+          "arg": "msg",
+          "type": "string",
+          "http": {
+            "source": "query"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "greeting",
+        "type": "string"
+      },
+      "http": {
+        "verb": "get"
+      }
+    }, 
+      "excite": {
+      "accepts": [
+        {
+          "arg": "text",
+          "type": "string",
+          "http": {
+            "source": "query"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "excitedText",
+        "type": "string"
+      },
+      "http": {
+        "verb": "get"
+      }
+    }, 
+    "keywords": {
+      "accepts": [
+        {
+          "arg": "text",
+          "type": "string",
+          "http": {
+            "source": "query"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "analyzedText",
+        "type": "string"
+      },
+      "http": {
+        "verb": "post"
+      }
+    }, 
+     "tone": {
+      "accepts": [
+        {
+          "arg": "text",
+          "type": "string",
+          "http": {
+            "source": "query"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "tonedText",
+        "type": "string"
+      },
+      "http": {
+        "verb": "post"
+      }
+    }
+  }
 }
