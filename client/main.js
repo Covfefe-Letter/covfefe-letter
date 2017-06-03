@@ -1,4 +1,3 @@
-'use strict';
 
 // var loopback = require('loopback')
 // var User = loopback.User;
@@ -9,12 +8,18 @@ var options = {
 };
 
 var editor = new Quill('#editor', options);
+var text = ''
 
 editor.on('text-change', function() {
-    var text = editor.getText()
-    console.log(text);
+  text = editor.getText()
 });
 
 $('button').on('click', function(){
-    console.log('hiii')
+    $.ajax({
+      method: 'POST',
+        url: `api/CoverLetters/tone?access_token=test&text=${text}`
+    })
+    .then(function(tone){
+      console.log(tone)
+    })
 })

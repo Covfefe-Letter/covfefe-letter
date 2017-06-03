@@ -36,9 +36,6 @@
     "public": false
   },
   "CoverLetter": {
-    "dataSource": "db"
-  },
-  "CoverLetter": {
     "dataSource": "db",
     "public": true
   }
