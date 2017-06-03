@@ -18,12 +18,12 @@ var tone_analyzer = new ToneAnalyzerV3({
 });
 
 //MODEL
-module.exports = function (Note) {
-    Note.excite = function (text, cb) {
+module.exports = function (CoverLetter) {
+    CoverLetter.excite = function (text, cb) {
         cb(null, text + "!!!!!!!!");
     };
 
-    Note.keywords = function (text, cb) {
+    CoverLetter.keywords = function (text, cb) {
 
         var keywordParams = {
             'text': text,
@@ -50,7 +50,7 @@ module.exports = function (Note) {
         });
     }
 
-    Note.tone = function(text, cb) {
+    CoverLetter.tone = function(text, cb) {
         var toneParams = {
             "text": text,
             "tones": "emotion, language, social"
