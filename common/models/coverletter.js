@@ -1,10 +1,12 @@
 'use strict';
 //NATURAL LANGUAGE UNDERSTANDING
+
+var keys = require('../../secrets.js')
 var NaturalLanguageUnderstandingV1 = require('watson-developer-cloud/natural-language-understanding/v1.js');
 
 var natural_language_understanding = new NaturalLanguageUnderstandingV1({
-    'username': 'bc63e495-bb3c-4753-b524-4c8cffad7f04',
-    'password': 'FptCILNHL4cn',
+    'username': keys.NLUusername,
+    'password': keys.NLUpassword,
     'version_date': '2017-02-27'
 });
 
@@ -12,8 +14,8 @@ var natural_language_understanding = new NaturalLanguageUnderstandingV1({
 var ToneAnalyzerV3 = require('watson-developer-cloud/tone-analyzer/v3');
 
 var tone_analyzer = new ToneAnalyzerV3({
-    username: '0e298d54-6b13-4622-9ec6-fc60141d94c3',
-    password: 'jjdt0MsvbZgs',
+    username: keys.toneusername,
+    password: keys.tonepassword,
     version_date: '2016-05-19'
 });
 
