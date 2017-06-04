@@ -34,7 +34,8 @@ module.exports = function (CoverLetter) {
                 console.error(err)
             }
             else {
-                cb(null, response);
+                var res = {sentiment: response.sentiment.document.score}  //just the score
+                cb(null, res);
             }
         })
     }
@@ -44,12 +45,24 @@ module.exports = function (CoverLetter) {
             "text": text,
             "tones": "emotion, language, social"
         }
+
         tone_analyzer.tone(toneParams, function (error, response) {
             if (error) {
                 console.error(error);
             }
             else {
-                cb(null, response);
+                var conf = response.document_tone.tone_categories[1].tones[1].score
+                var tent = response.document_tone.tone_categories[1].tones[2].score
+
+                var res = {
+                    overall: {
+                        confidence: conf,
+                        tentativeness: tent
+                    },
+                    sentences: response.sentences_tone
+                }
+
+                cb(null, res);
             }
         })
     }
