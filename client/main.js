@@ -23,3 +23,9 @@ $('button').on('click', function(){
       console.log(tone)
     })
 })
+
+$(document).ready(function(){
+  $(".nav-tabs a").click(function(){
+    $(this).tab('show');
+  })
+})

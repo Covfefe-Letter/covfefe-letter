@@ -3,17 +3,41 @@
 
 <head>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <meta charset="utf-8">
     <link href="https://cdn.quilljs.com/1.2.5/quill.snow.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="/style.css" rel="stylesheet" />
 </head>
 
 <body>
     <h1>Covfefe Letter</h1>
     <div id='editor'></div>
-
-    <button>Analyze</button>
-
+    <div id='feedback' class="container">
+      <ul class="nav nav-tabs">
+        <li class="active"><a href="#home">Sentiment</a></li>
+        <li><a href="#menu1">Areas to Improve</a></li>
+        <li><a href="#menu2">Strengths</a></li>
+        <li><a href="#menu3">Suggestions</a></li>
+      </ul>
+      <div class="tab-content">
+        <div id="home" class="tab-pane fade in active">
+          <p></p>
+        </div>
+        <div id="menu1" class="tab-pane fade">
+          <p></p>
+        </div>
+        <div id="menu2" class="tab-pane fade">
+          <p></p>
+        </div>
+        <div id="menu3" class="tab-pane fade">
+          <p></p>
+        </div>
+      </div>
+      </div>
+    <div id='button-container'>
+      <button type="button" class="btn btn-primary" id='button'>Analyze</button>
+    </div>
     <script src="https://cdn.quilljs.com/1.2.5/quill.js"></script>
     <script src="main.js"></script>
 </body>
