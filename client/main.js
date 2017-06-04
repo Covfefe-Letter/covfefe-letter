@@ -20,21 +20,21 @@ var result2;
 
 $.when(
   //Natural Language API
-    $.ajax({ 
+    $.ajax({
         method: 'POST',
-        url: `api/CoverLetters/naturalLanguage?access_token=test&text=${text}`, 
-        success: function(language){     
-                result1 = language;                  
-        }           
+        url: `api/CoverLetters/naturalLanguage?access_token=test&text=${text}`,
+        success: function(language){
+                result1 = language;
+        }
     }),
 
 //Tone Analysis API
-    $.ajax({ 
+    $.ajax({
         method: 'POST',
-        url: `api/CoverLetters/tone?access_token=test&text=${text}`, 
-        success: function(tone){                          
-            result2 = tone;     
-        }           
+        url: `api/CoverLetters/tone?access_token=test&text=${text}`,
+        success: function(tone){
+            result2 = tone;
+        }
     })
 
 ).then(function() {
@@ -54,7 +54,7 @@ $('#submitURL').on('click', function(e) {
   e.preventDefault()
   var urlString = e.target.previousElementSibling.value
   $.ajax({
-    method: 'POST', 
+    method: 'POST',
     url: `api/CoverLetters/analyzeURL?access_token=test&urlString=${urlString}`
   })
   .then(function(data){
