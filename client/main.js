@@ -73,13 +73,28 @@ $.when(
       $('#improve').append($sadnessButton)
     }
     if (tentativeSentenceArr.length > 0) {
-      var $tentativenessButton = $('<button type="button" class="btn btn-warning improveButton">Tentativeness</button>')
+      var $tentativenessButton = $('<button id="tent" type="button" class="btn btn-warning improveButton">Tentativeness</button>')
       $('#improve').append($tentativenessButton)
+	  $('#tent').on('click', function(e) {
+		e.preventDefault();
+		var sentences = result2.toneText.sentences,
+				hgltLength;
+			sentences.forEach(function(sent, index) {
+				if (sent.tentative > .3) {
+					hgltLength = sent.to - sent.from; 
+					editor.formatText(sent.from, hgltLength, {                
+						'background': 'lightPink'
+					}); // (sent.from, hgltLength);
+					console.log('index=', index, 'sent.tent=', sent.tentative, 'from=', sent.from, 'length=', hgltLength)
+				}
+			});
+	})
     }
     if (confidentSentenceArr.length > 0) {
       var $confidenceButton = $('<button type="button" class="btn btn-success improveButton">Confidence</button>')
       $('#strength').append($confidenceButton)
     }
+
     // if (sadSentenceArr.length > 0) {
     //       var $sadSentences = $('<h5>These sentences show high levels of sadness</h5>')
 
@@ -122,5 +137,7 @@ $('#submitURL').on('click', function(e) {
   })
   .then(function(data){
        console.log(data)
-  })
+  })  
 })
+
+
