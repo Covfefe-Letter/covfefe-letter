@@ -10,6 +10,7 @@
     border: 1px solid black;
     margin-left: 50px;
     border-radius: 10px;
+
 }
 
 .ql-toolbar, .ql-snow {
@@ -54,3 +55,10 @@ body {
 h1, h4 {
     font-family: 'Special Elite', cursive;
 }
+
+.improveButton {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
