@@ -13,6 +13,9 @@
 <body>
     <h1>Covfefe Letter</h1>
     <div id='editor' class='col-md-8'></div>
+    <div id='analyze-button-container'>
+      <button type="button" class="btn btn-primary" id='analyze'>Analyze</button>
+    </div>
     <div id='feedback' class='container col-md-4'>
       <ul class="nav nav-tabs">
         <li class="active"><a href="#home">Sentiment</a></li>
@@ -35,9 +38,6 @@
         </div>
       </div>
       </div>
-    <div id='analyze-button-container'>
-      <button type="button" class="btn btn-primary" id='analyze'>Analyze</button>
-    </div>
     <div id="jobURL">Enter a job description URL here to see how you match up!<input type="text" name="urlInput" id="url"><button id="submitURL">Submit</button></div>
     <script src="https://cdn.quilljs.com/1.2.5/quill.js"></script>
     <script src="main.js"></script>
