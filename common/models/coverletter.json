@@ -13,25 +13,7 @@
   "relations": {},
   "acls": [],
   "methods": {
-    "greet": {
-      "accepts": [
-        {
-          "arg": "msg",
-          "type": "string",
-          "http": {
-            "source": "query"
-          }
-        }
-      ],
-      "returns": {
-        "arg": "greeting",
-        "type": "string"
-      },
-      "http": {
-        "verb": "get"
-      }
-    }, 
-      "excite": {
+    "naturalLanguage": {
       "accepts": [
         {
           "arg": "text",
@@ -42,32 +24,14 @@
         }
       ],
       "returns": {
-        "arg": "excitedText",
-        "type": "string"
-      },
-      "http": {
-        "verb": "get"
-      }
-    }, 
-    "keywords": {
-      "accepts": [
-        {
-          "arg": "text",
-          "type": "string",
-          "http": {
-            "source": "query"
-          }
-        }
-      ],
-      "returns": {
-        "arg": "analyzedText",
+        "arg": "nluText",
         "type": "string"
       },
       "http": {
         "verb": "post"
       }
     }, 
-     "tone": {
+    "tone": {
       "accepts": [
         {
           "arg": "text",
@@ -78,7 +42,25 @@
         }
       ],
       "returns": {
-        "arg": "tonedText",
+        "arg": "toneText",
+        "type": "string"
+      },
+      "http": {
+        "verb": "post"
+      }
+    }, 
+     "analyzeURL": {
+      "accepts": [
+        {
+          "arg": "urlString",
+          "type": "string",
+          "http": {
+            "source": "query"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "urlAnalysis",
         "type": "string"
       },
       "http": {
