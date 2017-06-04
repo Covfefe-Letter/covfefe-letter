@@ -1,8 +1,26 @@
 #editor {
-    height: 60vh;
-    width: 80vw;
+    height: 75vh;
+    display: inline-block;
+    margin: 0px 5px 0px 5px;
+}
+
+#feedback {
+    height: 70vh;
+    display: inline-block;
+    border: 2px solid black;
+    margin: 5px;
 }
 
 .ql-toolbar, .ql-snow {
-    width: 80vw;
+    width: 62vw;
+    margin: 0px 5px 0px 5px;
+}
+
+#button {
+  margin-top: 5px;
+}
+
+#button-container {
+  width: 62vw;
+  text-align: center;
 }

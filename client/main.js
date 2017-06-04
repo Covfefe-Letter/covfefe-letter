@@ -44,6 +44,12 @@ $.when(
 })
 })
 
+$(document).ready(function(){
+  $(".nav-tabs a").click(function(){
+    $(this).tab('show');
+  })
+})
+
 $('#submitURL').on('click', function(e) {
   e.preventDefault()
   var urlString = e.target.previousElementSibling.value
