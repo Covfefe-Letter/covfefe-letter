@@ -7,6 +7,7 @@
     <meta charset="utf-8">
     <link href="https://cdn.quilljs.com/1.2.5/quill.snow.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="jqcloud.css"/>
     <link href="/style.css" rel="stylesheet" />
 </head>
 
@@ -30,15 +31,19 @@
         <div id="menu2" class="tab-pane fade">
           <p></p>
         </div>
-        <div id="menu3" class="tab-pane fade">
-          <p></p>
+        <div id="menu3" id="suggestions" class="tab-pane fade">
+          <h5>Try using keywords from the job description, like these:</h5>
+          <div id="jobWords">
+
+          </div>
+          <div id="jobURL">Enter a job description URL to find keywords you can add to your letter.<input type="text" name="urlInput" id="url"><button id="submitURL">Submit</button></div>
         </div>
       </div>
       </div>
     <div id='analyze-button-container'>
       <button type="button" class="btn btn-primary" id='analyze'>Analyze</button>
     </div>
-    <div id="jobURL">Enter a job description URL here to see how you match up!<input type="text" name="urlInput" id="url"><button id="submitURL">Submit</button></div>
+    <script src="jqcloud-1.0.4.js"></script>
     <script src="https://cdn.quilljs.com/1.2.5/quill.js"></script>
     <script src="main.js"></script>
 </body>
