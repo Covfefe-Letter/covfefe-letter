@@ -25,7 +25,10 @@ module.exports = function (CoverLetter) {
         var NLUparams = {
             'text': text,
             'features': {
-                'sentiment': {} //leave this as a blank object unless there are targets
+                'sentiment': {}, //leave this as a blank object unless there are targets
+                'keywords': {
+                    'limit': 30
+                }
             }
         }
 
@@ -34,7 +37,7 @@ module.exports = function (CoverLetter) {
                 console.error(err)
             }
             else {
-                var res = {sentiment: response.sentiment.document.score}  //just the score
+                var res = { sentiment: response.sentiment.document.score, keywords: response.keywords }  
                 cb(null, res);
             }
         })
@@ -61,19 +64,19 @@ module.exports = function (CoverLetter) {
                 var tent = response.document_tone.tone_categories[1].tones[2].score
 
                 //Arrange data for each sentence into one array with no nested objects. 
-                var newSentences = response.sentences_tone.map(function(sentence) {
+                var newSentences = response.sentences_tone.map(function (sentence) {
                     var sentData = {
-                        from: sentence.input_from, 
+                        from: sentence.input_from,
                         to: sentence.input_to
                     }
 
-                    sentence.tone_categories.forEach(function(category) {
-                        category.tones.forEach(function(name) {
+                    sentence.tone_categories.forEach(function (category) {
+                        category.tones.forEach(function (name) {
                             sentData[name.tone_id] = name.score
                         })
                     })
 
-                    return sentData; 
+                    return sentData;
                 })
 
                 var res = {
