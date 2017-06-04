@@ -19,50 +19,39 @@ var tone_analyzer = new ToneAnalyzerV3({
 
 //MODEL
 module.exports = function (CoverLetter) {
-    CoverLetter.excite = function (text, cb) {
-        cb(null, text + "!!!!!!!!");
-    };
 
-    CoverLetter.keywords = function (text, cb) {
+    CoverLetter.naturalLanguage = function (text, cb) {
 
-        var keywordParams = {
+        var NLUparams = {
             'text': text,
             'features': {
-                'keywords': {
-                    'sentiment': true,
-                    'emotion': true,
-                    'limit': 40
-                }
+                'sentiment': {} //leave this as a blank object unless there are targets
             }
-        };
+        }
 
-        var res;
-
-        natural_language_understanding.analyze(keywordParams, function (err, response) {
+        natural_language_understanding.analyze(NLUparams, function (err, response) {
             if (err) {
                 console.error(err)
             }
             else {
-                // res = JSON.stringify(response, null, 2);
                 cb(null, response);
-                console.log(response)
             }
-        });
+        })
     }
 
-    CoverLetter.tone = function(text, cb) {
+    CoverLetter.tone = function (text, cb) {
         var toneParams = {
             "text": text,
             "tones": "emotion, language, social"
         }
-
         tone_analyzer.tone(toneParams, function (error, response) {
-            if (error)
+            if (error) {
                 console.error(error);
-            else
+            }
+            else {
                 cb(null, response);
-                console.log(response)
-        }
-        );
+            }
+        })
     }
 };
+
