@@ -1,13 +1,11 @@
 #editor {
     height: 75vh;
-    width: 62vw;
     display: inline-block;
     margin: 0px 5px 0px 5px;
 }
 
 #feedback {
     height: 70vh;
-    width: 32vw;
     display: inline-block;
     border: 2px solid black;
     margin: 5px;
