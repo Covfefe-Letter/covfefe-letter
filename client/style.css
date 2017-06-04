@@ -45,3 +45,8 @@ body {
 #url {
     margin-left: 10px;
 }
+
+#jobWords {
+    width: 400px; 
+    height: 350px;  
+}
