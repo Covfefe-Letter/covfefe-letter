@@ -9,6 +9,7 @@
     display: inline-block;
     border: 2px solid black;
     margin: 5px;
+    text-align: center;
 }
 
 .ql-toolbar, .ql-snow {
@@ -23,4 +24,10 @@
 #analyze-button-container {
   width: 62vw;
   text-align: center;
+}
+
+.improveButton {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 10px;
 }
