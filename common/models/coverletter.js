@@ -51,15 +51,37 @@ module.exports = function (CoverLetter) {
                 console.error(error);
             }
             else {
+                //This logic makes the Tone Analysis API data easier to access.
+                //You will get an array with a length of the number of sentences in the text. Each element is an object that has all the 
+                //data you need for each individual sentence.  
+                //To highlight, use .from and .to. These represent the chars in the string. 
+
+                //Overall "confident" and "tentative" score
                 var conf = response.document_tone.tone_categories[1].tones[1].score
                 var tent = response.document_tone.tone_categories[1].tones[2].score
+
+                //Arrange data for each sentence into one array with no nested objects. 
+                var newSentences = response.sentences_tone.map(function(sentence) {
+                    var sentData = {
+                        from: sentence.input_from, 
+                        to: sentence.input_to
+                    }
+
+                    sentence.tone_categories.forEach(function(category) {
+                        category.tones.forEach(function(name) {
+                            sentData[name.tone_id] = name.score
+                        })
+                    })
+
+                    return sentData; 
+                })
 
                 var res = {
                     overall: {
                         confidence: conf,
                         tentativeness: tent
                     },
-                    sentences: response.sentences_tone
+                    sentences: newSentences
                 }
 
                 cb(null, res);
