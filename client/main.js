@@ -14,7 +14,7 @@ editor.on('text-change', function() {
   text = editor.getText()
 });
 
-$('button').on('click', function(){
+$('#analyze').on('click', function(){
 var result1;
 var result2;
 
@@ -27,7 +27,7 @@ $.when(
                 result1 = language;                  
         }           
     }),
-    
+
 //Tone Analysis API
     $.ajax({ 
         method: 'POST',
@@ -41,5 +41,17 @@ $.when(
     // $('#result1').html(result1);
     // $('#result2').html(result2);
     console.log("LANG", result1, "TONE", result2)
-});
+})
+})
+
+$('#submitURL').on('click', function(e) {
+  e.preventDefault()
+  var urlString = e.target.previousElementSibling.value
+  $.ajax({
+    method: 'POST', 
+    url: `api/CoverLetters/analyzeURL?access_token=test&urlString=${urlString}`
+  })
+  .then(function(data){
+       console.log(data)
+  })
 })

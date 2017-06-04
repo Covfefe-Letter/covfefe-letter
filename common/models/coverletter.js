@@ -37,7 +37,7 @@ module.exports = function (CoverLetter) {
                 console.error(err)
             }
             else {
-                var res = { sentiment: response.sentiment.document.score, keywords: response.keywords }  
+                var res = { sentiment: response.sentiment.document.score, keywords: response.keywords }
                 cb(null, res);
             }
         })
@@ -90,6 +90,29 @@ module.exports = function (CoverLetter) {
                 cb(null, res);
             }
         })
+    }
+
+    //For when someone types in a URL for a job description
+    CoverLetter.analyzeURL = function (urlString, cb) {
+
+        var NLUparams = {
+            'url': urlString,
+            'features': {
+                'keywords': {
+                    'limit': 30
+                }
+            }
+        }
+
+        natural_language_understanding.analyze(NLUparams, function (err, response) {
+            if (err) {
+                console.error(err)
+            }
+            else {
+                cb(null, response);
+            }
+        })
+
     }
 };
 

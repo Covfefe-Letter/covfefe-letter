@@ -48,6 +48,24 @@
       "http": {
         "verb": "post"
       }
+    }, 
+     "analyzeURL": {
+      "accepts": [
+        {
+          "arg": "urlString",
+          "type": "string",
+          "http": {
+            "source": "query"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "urlAnalysis",
+        "type": "string"
+      },
+      "http": {
+        "verb": "post"
+      }
     }
   }
 }
