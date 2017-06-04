@@ -50,3 +50,7 @@ body {
     width: 400px; 
     height: 350px;  
 }
+
+h1, h4 {
+    font-family: 'Special Elite', cursive;
+}

@@ -7,19 +7,26 @@
     <meta charset="utf-8">
     <link href="https://cdn.quilljs.com/1.2.5/quill.snow.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
     <link rel="stylesheet" href="jqcloud.css"/>
     <link href="/style.css" rel="stylesheet" />
 </head>
 
 <body>
     <h1>Covfefe Letter</h1>
+    <h4>
+      An app that helps you write cover letters better than our president can write tweets.
+    </h4>
+    <p>
+      Start by pasting a draft of your cover letter in the editor and clicking 'Analyze'!
+    </p>
     <div id='editor' class='col-md-8'></div>
     <div id='analyze-button-container'>
       <button type="button" class="btn btn-primary" id='analyze'>Analyze</button>
     </div>
     <div id='feedback' class='container col-md-4'>
       <ul class="nav nav-tabs">
-        <li class="active"><a href="#home">Sentiment</a></li>
+        <li class="active"><a href="#home">Overall Sentiment</a></li>
         <li><a href="#menu1">Areas to Improve</a></li>
         <li><a href="#menu2">Strengths</a></li>
         <li><a href="#menu3">Suggestions</a></li>
@@ -43,9 +50,6 @@
         </div>
       </div>
       </div>
-    <div id='analyze-button-container'>
-      <button type="button" class="btn btn-primary" id='analyze'>Analyze</button>
-    </div>
     <script src="jqcloud-1.0.4.js"></script>
     <script src="https://cdn.quilljs.com/1.2.5/quill.js"></script>
     <script src="main.js"></script>
