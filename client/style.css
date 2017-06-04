@@ -24,3 +24,8 @@
   width: 62vw;
   text-align: center;
 }
+
+#jobWords {
+    width: 400px; 
+    height: 350px;  
+}
