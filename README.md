@@ -6,7 +6,7 @@ HTML | CSS | jQuery | Loopback | IBM Watson APIs
 
 Made by @jodiely (Developer at Large), @keziyah (Engineer Extraordinaire), @MariannaAtPlay (Queen of Codeland), @rachelfreya (Hacker in Chief), and @ys238 (Empress of Ideas). 
 
-A project started at the 2017 Mobile Monday API First Hackathon (June 3-5). 
+A project started at the 2017 Mobile Monday API First Hackathon (June 2-4). 
 
 ## How to use
 
