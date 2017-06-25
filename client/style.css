@@ -5,12 +5,13 @@
 }
 
 #feedback {
-    height: 65vh;
+    height: 75vh;
     display: inline-block;
     border: 1px solid black;
     margin-left: 50px;
     border-radius: 10px;
-
+    margin-top: -3%;
+    overflow: auto; 
 }
 
 .ql-toolbar, .ql-snow {
@@ -18,15 +19,16 @@
     margin: 0px 5px 0px 5px;
 }
 
-#analyze {
-  margin-top: 5px;
-}
+/*#analyze {
+  margin-top: -20px;
+}*/
 
 #analyze-button-container {
   /*width: 62vw;*/
   text-align: center;
   margin-left: 95px;
   margin-bottom: 10px;
+  margin-top: -2.8%; 
 }
 
 body {
@@ -37,6 +39,10 @@ body {
 
 .ql-toolbar, .ql-snow, .ql-container, .container {
     background-color: white
+}
+
+#suggestion {
+    height: 50vh; 
 }
 
 #jobURL {

@@ -1,7 +1,4 @@
-
-// var loopback = require('loopback')
-// var User = loopback.User;
-// app.model(User);
+var draft = 0 //keeps track of how many drafts the user has tried to analyze
 
 var options = {
     theme: 'snow'
@@ -15,6 +12,8 @@ editor.on('text-change', function () {
 });
 
 $('#analyze').on('click', function () {
+    draft++; 
+
     var result1;
     var result2;
 
@@ -39,13 +38,14 @@ $('#analyze').on('click', function () {
 
 
 ).then(function() {
-    // $('#result1').html(result1);
-    // $('#result2').html(result2);
+    $('#improve').empty()  //Remove the previous buttons and paragraphs in the feedback
+    $('#strength').empty()
     var confidence = Math.round(result2.toneText.overall.confidence * 100)
     var tentativeness = Math.round(result2.toneText.overall.tentativeness * 100)
     var positivity = Math.round(result1.nluText.sentiment * 100)
     var posOrNeg = positivity >= 0 ? 'positivity' : 'negativity'
     var $sentiment = $('<p></p>').text(`Your confidence is ${confidence}%. Your tentativeness is ${tentativeness}%. Your ${posOrNeg} is ${positivity}%.`)
+    $('#tone').append(`<h3>Draft ${draft}:</h3>`)
     $('#tone').append($sentiment)
     var sentences = result2.toneText.sentences
     var angrySentenceArr = sentences.filter(sentence => sentence.anger > 0.5)
@@ -54,24 +54,33 @@ $('#analyze').on('click', function () {
     var sadSentenceArr = sentences.filter(sentence => sentence.sadness > 0.5)
     var tentativeSentenceArr = sentences.filter(sentence => sentence.tentative > 0.5)
     var confidentSentenceArr = sentences.filter(sentence => sentence.confident > 0.5)
+    console.log("CONFIDENT", confidentSentenceArr)
     var openSentenceArr = sentences.filter(sentence => sentence.openness_big5 > 0.5)
     var conscientiousSentenceArr = sentences.filter(sentence => sentence.conscientiousness_big5 > 0.5)
     var agreeableSentenceArr = sentences.filter(sentence => sentence.agreeableness_big5 > 0.5)
     if (angrySentenceArr.length > 0) {
       var $angerButton = $('<button type="button" class="btn btn-warning improveButton">Anger</button>')
       $('#improve').append($angerButton)
+    } else {
+      $('#improve').append('<p>None of your sentences show anger.</p>')
     }
     if (disgustedSentenceArr.length > 0) {
       var $disgustButton = $('<button type="button" class="btn btn-warning improveButton">Disgust</button>')
       $('#improve').append($disgustButton)
+    } else {
+        $('#improve').append('<p>None of your sentences show disgust.</p>')
     }
     if (fearfulSentenceArr.length > 0) {
       var $fearButton = $('<button type="button" class="btn btn-warning improveButton">Fear</button>')
       $('#improve').append($fearButton)
+    } else {
+        $('#improve').append('<p>None of your sentences show fear.</p>')
     }
     if (sadSentenceArr.length > 0) {
       var $sadnessButton = $('<button type="button" class="btn btn-warning improveButton">Sadness</button>')
       $('#improve').append($sadnessButton)
+    } else {
+        $('#improve').append('<p>None of your sentences show sadness.</p>')
     }
     if (tentativeSentenceArr.length > 0) {
       var $tentativenessButton = $('<button id="tent" type="button" class="btn btn-warning improveButton">Tentativeness</button>')
@@ -90,10 +99,23 @@ $('#analyze').on('click', function () {
 				}
 			});
 	})
+    } else {
+        $('#improve').append('<p>None of your sentences are too tentative.</p>')
     }
+
+    //List the confident sentences in the strengths div. 
     if (confidentSentenceArr.length > 0) {
-      var $confidenceButton = $('<button type="button" class="btn btn-success improveButton">Confidence</button>')
+      var $confidenceButton = $('<button id="confidence" type="button" class="btn btn-success improveButton">Confident Sentences</button>')
       $('#strength').append($confidenceButton)
+      $('#confidence').on('click', function(e) {
+          e.preventDefault()
+          confidentSentenceArr.forEach(sentence => {
+          $sentence = $('<p></p>').text(text.slice(sentence.from, sentence.to))
+          $('#strength').append($sentence)
+        })
+      })
+    } else {
+        $('#strength').append('<p>None of your sentences are very confident. </p>')
     }
 
     // if (sadSentenceArr.length > 0) {

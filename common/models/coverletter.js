@@ -66,7 +66,7 @@ module.exports = function (CoverLetter) {
                 var tent = response.document_tone.tone_categories[1].tones[2].score
 
                 //Arrange data for each sentence into one array with no nested objects. 
-                var newSentences = response.sentences_tone.map(function (sentence) {
+                var newSentences = response.sentences_tone && response.sentences_tone.map(function (sentence) {
                     var sentData = {
                         from: sentence.input_from,
                         to: sentence.input_to

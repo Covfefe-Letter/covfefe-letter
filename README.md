@@ -12,7 +12,17 @@ A project started at the 2017 Mobile Monday API First Hackathon (June 2-4).
 
 Live site: http://covfefe-letter.mybluemix.net/
 
-Or: Clone it, go into the directory, and npm start. 
+Or: Clone it, go into the directory, and `npm start`. 
+You will need a secrets.js file with your credentials for the Watson Natural Language Understanding and Tone Analysis APIs. 
+
+```javascript
+module.exports = {
+    NLUusername: 'your-natural-language-understanding-username', 
+    NLUpassword: 'your-natural-language-understanding-password', 
+    toneusername: 'your-tone-analysis-username', 
+    tonepassword: 'your-tone-analysis-password'
+}
+```
 
 ## How It Works
 
